@@ -11,7 +11,13 @@ public class Tipos {
     double numGrande = 100000000000.00;
 
     public void mostrarVariaveis() {
-        System.out.print(idade + " " + ano + " " + cep + " " + letra + " " + " " + nome +
-                " " + numGalaxias + " " + numPequeno + " " + numGrande);
+        System.out.println("Idade: " + idade);
+        System.out.println("Ano: " + ano);
+        System.out.println("CEP: " + cep);
+        System.out.println("Letra: " + letra);
+        System.out.println("Nome: " + nome);
+        System.out.println("Número de Galáxias: " + numGalaxias);
+        System.out.println("Número Pequeno: " + numPequeno);
+        System.out.println("Número Grande: " + numGrande);
     }
 }
