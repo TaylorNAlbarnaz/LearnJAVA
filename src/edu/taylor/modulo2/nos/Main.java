@@ -2,23 +2,37 @@ package edu.taylor.modulo2.nos;
 
 public class Main {
     public static void main(String[] args) {
-        No no1 = new No("Conteúdo nó1");
+        //Nós de String
+        No<String> noString1 = new No<String>("Conteúdo Nó 1");
 
-        No no2 = new No("Conteúdo nó2");
-        no1.setProximoNo(no2);
+        No<String> noString2 = new No<String>("Conteúdo Nó 2");
+        noString1.setProximoNo(noString2);
 
-        No no3 = new No("Conteúdo nó3");
-        no2.setProximoNo(no3);
+        No<String> noString3 = new No<String>("Conteúdo Nó 3");
+        noString2.setProximoNo(noString3);
 
-        No no4 = new No("Conteúdo nó4");
-        no3.setProximoNo(no4);
+        //Nós de Integer
+        No<Integer> noInteger1 = new No<Integer>(1);
 
-        //no1->no2->no3->no4->null
+        No<Integer> noInteger2 = new No<Integer>(2);
+        noInteger1.setProximoNo(noInteger2);
 
-        No currentNo = no1;
-        while (currentNo != null) {
-            System.out.println(currentNo);
-            currentNo = currentNo.getProximoNo();
+        No<Integer> noInteger3 = new No<Integer>(3);
+        noInteger2.setProximoNo(noInteger3);
+        
+        //Visualizar cadeias de nós
+        No<String> currentNoString = noString1;
+        while (currentNoString != null) {
+            System.out.println(currentNoString);
+            currentNoString = currentNoString.getProximoNo();
+        }
+
+        System.out.println("--------------------");
+
+        No<Integer> currentNoInteger = noInteger1;
+        while (currentNoInteger != null) {
+            System.out.println(currentNoInteger);
+            currentNoInteger = currentNoInteger.getProximoNo();
         }
     }   
 }
