@@ -1,47 +1,41 @@
 package edu.taylor.modulo2.lifo;
 
 public class Pile {
-
-    private Node refNodeEntry;
+    private LNode refLNodeEntry;
 
     public Pile() {
-        this.refNodeEntry = null;
+        this.refLNodeEntry = null;
     }
 
-    public void push(Node newNode) {
-        Node refAuxiliar = refNodeEntry;
-        refNodeEntry = newNode;
-        refNodeEntry.setRefNode(refAuxiliar);
+    public void push(LNode newLNode) {
+        LNode refAuxiliar = refLNodeEntry;
+        refLNodeEntry = newLNode;
+        refLNodeEntry.setRefNode(refAuxiliar);
     }
 
     public void pop() {
         if (!isEmpty()) {
-            refNodeEntry = refNodeEntry.getRefNode();
+            refLNodeEntry = refLNodeEntry.getRefNode();
         }
     }
 
-    public Node top() {
-        return refNodeEntry;
+    public LNode top() {
+        return refLNodeEntry;
     }
 
     public boolean isEmpty() {
-        return refNodeEntry == null;
+        return refLNodeEntry == null;
     }
 
     @Override
     public String toString() {
-        String returnString = "-------------\n";
-        returnString += "   Pilha\n";
-        returnString += "-------------\n";
+        String returnString = "";
+        LNode auxiliarLNode = refLNodeEntry;
 
-        Node auxiliarNode = refNodeEntry;
-
-        while (auxiliarNode != null) {
-            returnString += "[ Node { dado: " + auxiliarNode.getData() + " } ]\n";
-            auxiliarNode = auxiliarNode.getRefNode();
+        while (auxiliarLNode != null) {
+            returnString += "[ Node { data: " + auxiliarLNode.getData() + " } ]\n";
+            auxiliarLNode = auxiliarLNode.getRefNode();
         }
-
-        returnString += "-------------\n";
         return returnString;
     }
 }
