@@ -1,26 +1,26 @@
 package edu.taylor.modulo2.lifo;
 
-public class LNode {
-    private int data;
-    private LNode refLNode = null;
+public class LNode<T> {
+    private T data;
+    private LNode<T> refLNode = null;
 
-    public LNode(int data) {
+    public LNode(T data) {
         this.data = data;
     }
 
-    public int getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(int data) {
+    public void setData(T data) {
         this.data = data;
     }
 
-    public LNode getRefNode() {
+    public LNode<T> getRefNode() {
         return refLNode;
     }
 
-    public void setRefNode(LNode refLNode) {
+    public void setRefNode(LNode<T> refLNode) {
         this.refLNode = refLNode;
     }
 

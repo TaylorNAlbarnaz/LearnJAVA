@@ -1,7 +1,7 @@
 package edu.taylor.modulo2.fifo;
 
-public class Queue {
-    private FNode refEntryFNode;
+public class Queue<T> {
+    private FNode<T> refEntryFNode;
 
     public Queue() {
         this.refEntryFNode = null;
@@ -11,34 +11,34 @@ public class Queue {
         return refEntryFNode == null;
     }
 
-    public void enqueue(Object obj) {
-        FNode newFNode = new FNode(obj);
+    public void enqueue(T data) {
+        FNode<T> newFNode = new FNode<>(data);
         newFNode.setRefNode(refEntryFNode);
         refEntryFNode = newFNode;
     }
 
-    public Object first() {
+    public T first() {
         if (!isEmpty()) {
-            FNode firstFNode = refEntryFNode;
+            FNode<T> firstFNode = refEntryFNode;
             while (firstFNode.getRefNode() != null) {
                 firstFNode = firstFNode.getRefNode();
             }
-            return firstFNode.getObject();
+            return firstFNode.getData();
         }
         return null;
     }
 
-    public Object dequeue() {
+    public T dequeue() {
         if (!isEmpty()) {
-            FNode firstFNode = refEntryFNode;
-            FNode auxiliarFNode = refEntryFNode;
+            FNode<T> firstFNode = refEntryFNode;
+            FNode<T> auxiliarFNode = refEntryFNode;
 
             while (firstFNode.getRefNode() != null) {
                 auxiliarFNode = firstFNode;
                 firstFNode = firstFNode.getRefNode();
             }
             auxiliarFNode.setRefNode(null);
-            return firstFNode.getObject();
+            return firstFNode.getData();
         }
         return null;
     }
@@ -46,11 +46,11 @@ public class Queue {
     @Override
     public String toString() {
         String returnString = "";
-        FNode auxiliarFNode = refEntryFNode;
+        FNode<T> auxiliarFNode = refEntryFNode;
 
         if (!isEmpty()) {
             while (true) {
-                returnString += "[ Node { object: " + auxiliarFNode.getObject() + " } ] ---> ";
+                returnString += "[ Node { object: " + auxiliarFNode.getData() + " } ] ---> ";
                 if (auxiliarFNode.getRefNode() != null) {
                     auxiliarFNode = auxiliarFNode.getRefNode();
                 } else {

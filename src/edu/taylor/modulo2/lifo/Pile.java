@@ -1,14 +1,14 @@
 package edu.taylor.modulo2.lifo;
 
-public class Pile {
-    private LNode refLNodeEntry;
+public class Pile<T> {
+    private LNode<T> refLNodeEntry;
 
     public Pile() {
         this.refLNodeEntry = null;
     }
 
-    public void push(LNode newLNode) {
-        LNode refAuxiliar = refLNodeEntry;
+    public void push(LNode<T> newLNode) {
+        LNode<T> refAuxiliar = refLNodeEntry;
         refLNodeEntry = newLNode;
         refLNodeEntry.setRefNode(refAuxiliar);
     }
@@ -19,7 +19,7 @@ public class Pile {
         }
     }
 
-    public LNode top() {
+    public LNode<T> top() {
         return refLNodeEntry;
     }
 
@@ -30,7 +30,7 @@ public class Pile {
     @Override
     public String toString() {
         String returnString = "";
-        LNode auxiliarLNode = refLNodeEntry;
+        LNode<T> auxiliarLNode = refLNodeEntry;
 
         while (auxiliarLNode != null) {
             returnString += "[ Node { data: " + auxiliarLNode.getData() + " } ]\n";
