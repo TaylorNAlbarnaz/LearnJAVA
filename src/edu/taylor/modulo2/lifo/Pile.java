@@ -19,17 +19,13 @@ public class Pile<T> {
         }
     }
 
-    public LNode<T> top() {
-        return refLNodeEntry;
-    }
-
     public boolean isEmpty() {
         return refLNodeEntry == null;
     }
 
     @Override
     public String toString() {
-        String returnString = "";
+        String returnString = "Pile: \n";
         LNode<T> auxiliarLNode = refLNodeEntry;
 
         while (auxiliarLNode != null) {

@@ -1,5 +1,6 @@
 package edu.taylor.modulo2;
 
+import edu.taylor.modulo2.chain.Chain;
 import edu.taylor.modulo2.fifo.Queue;
 import edu.taylor.modulo2.lifo.LNode;
 import edu.taylor.modulo2.lifo.Pile;
@@ -8,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
         showLifo();
         showFifo();
+        showChain();
     }
 
     public static void showLifo() {
@@ -25,7 +27,6 @@ public class Main {
         myPile.pop();
 
         System.out.println(myPile);
-        System.out.println("Top -> " + myPile.top() + "\n");
     }
 
     public static void showFifo() {
@@ -43,7 +44,22 @@ public class Main {
         myQueue.dequeue();
 
         System.out.println(myQueue);
-        System.out.println();
-        System.out.println("First -> firstNode.object -> " + myQueue.first() + "\n");
+    }
+
+    public static void showChain() {
+        Chain<String> myChain = new Chain<>();
+
+        myChain.add("Item 1");
+        myChain.add("Item 2");
+        myChain.add("Item 3");
+        myChain.add("Item 4");
+        myChain.add("Item 5");
+
+        System.out.println(myChain);
+
+        myChain.remove(4);
+        myChain.remove(3);
+
+        System.out.println(myChain);
     }
 }

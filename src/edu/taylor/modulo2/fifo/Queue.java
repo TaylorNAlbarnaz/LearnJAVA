@@ -17,17 +17,6 @@ public class Queue<T> {
         refEntryFNode = newFNode;
     }
 
-    public T first() {
-        if (!isEmpty()) {
-            FNode<T> firstFNode = refEntryFNode;
-            while (firstFNode.getRefNode() != null) {
-                firstFNode = firstFNode.getRefNode();
-            }
-            return firstFNode.getData();
-        }
-        return null;
-    }
-
     public T dequeue() {
         if (!isEmpty()) {
             FNode<T> firstFNode = refEntryFNode;
@@ -37,6 +26,7 @@ public class Queue<T> {
                 auxiliarFNode = firstFNode;
                 firstFNode = firstFNode.getRefNode();
             }
+
             auxiliarFNode.setRefNode(null);
             return firstFNode.getData();
         }
@@ -45,17 +35,17 @@ public class Queue<T> {
 
     @Override
     public String toString() {
-        String returnString = "";
+        String returnString = "Queue: ";
         FNode<T> auxiliarFNode = refEntryFNode;
 
         if (!isEmpty()) {
             while (true) {
                 returnString += "[ Node { object: " + auxiliarFNode.getData() + " } ] ---> ";
-                if (auxiliarFNode.getRefNode() != null) {
-                    auxiliarFNode = auxiliarFNode.getRefNode();
-                } else {
+
+                if (auxiliarFNode.getRefNode() == null)
                     break;
-                }
+
+                auxiliarFNode = auxiliarFNode.getRefNode();
             }
             returnString += "null";
         } else {
