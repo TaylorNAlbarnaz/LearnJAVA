@@ -1,6 +1,7 @@
 package edu.taylor.modulo2;
 
 import edu.taylor.modulo2.chain.Chain;
+import edu.taylor.modulo2.circular.Circular;
 import edu.taylor.modulo2.doublechain.DoubleChain;
 import edu.taylor.modulo2.fifo.Queue;
 import edu.taylor.modulo2.lifo.LNode;
@@ -12,6 +13,7 @@ public class Main {
         showFifo();
         showChain();
         showDoubleChain();
+        showCircular();
     }
 
     public static void showLifo() {
@@ -81,5 +83,22 @@ public class Main {
         myDoubleChain.add("Item 3", 2);
 
         System.out.println(myDoubleChain);
+    }
+
+    public static void showCircular() {
+        Circular<String> myCircular = new Circular<>();
+
+        myCircular.add("Item 1");
+        myCircular.add("Item 2");
+        myCircular.add("Item 3");
+
+        System.out.println(myCircular);
+
+        myCircular.remove(2);
+        myCircular.add("Item 3");
+        myCircular.add("Item 4");
+        myCircular.add("Item 5");
+
+        System.out.println(myCircular);
     }
 }
