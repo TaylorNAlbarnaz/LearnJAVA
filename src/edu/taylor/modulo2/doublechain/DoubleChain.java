@@ -31,12 +31,14 @@ public class DoubleChain<T> {
     }
 
     public void add(T data, int index) {
+        checkValidIndex(index);
+        
         DoubleNode<T> auxiliarRef = getDoubleNode(index);
         DoubleNode<T> newDoubleNode = new DoubleNode<>(data);
         newDoubleNode.setNextRef(auxiliarRef);
 
         if (newDoubleNode.getNextRef() != null) {
-            newDoubleNode.setPrevRef(auxiliarRef.getNextRef());
+            newDoubleNode.setPrevRef(auxiliarRef.getPrevRef());
             newDoubleNode.getNextRef().setPrevRef(newDoubleNode);
         } else {
             newDoubleNode.setPrevRef(lastRef);
@@ -52,7 +54,15 @@ public class DoubleChain<T> {
         listSize++;
     }
 
+    private void checkValidIndex(int index) {
+        if (index >= size()) {
+            throw new IndexOutOfBoundsException("Chain doesn't have a " + index + " index!");
+        }
+    }
+
     public void remove(int index) {
+        checkValidIndex(index);
+
         if (index == 0) {
             entryRef = entryRef.getNextRef();
             if (entryRef != null) {
@@ -65,7 +75,7 @@ public class DoubleChain<T> {
             if (auxiliarRef != lastRef) {
                 auxiliarRef.getNextRef().setPrevRef(auxiliarRef.getPrevRef());
             } else {
-                lastRef = auxiliarRef;
+                lastRef = auxiliarRef.getPrevRef();
             }
         }
         listSize--;
@@ -87,7 +97,7 @@ public class DoubleChain<T> {
 
     @Override
     public String toString() {
-        String returnString = "";
+        String returnString = "DoubleChain: ";
 
         DoubleNode<T> auxiliarRef = entryRef;
         for (int i = 0; i < listSize; i++) {
