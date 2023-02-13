@@ -74,13 +74,14 @@ public class Main {
         myDoubleChain.add("Item 1");
         myDoubleChain.add("Item 2");
         myDoubleChain.add("Item 3");
-        myDoubleChain.add("Item 4");
-        myDoubleChain.add("Item 5");
 
         System.out.println(myDoubleChain);
 
         myDoubleChain.remove(2);
-        myDoubleChain.remove(3);
+        myDoubleChain.add("Item 4");
+        myDoubleChain.add("Item 5");
+
+        myDoubleChain.add("Item 3", 2);
 
         System.out.println(myDoubleChain);
     }
