@@ -5,6 +5,8 @@ import edu.taylor.modulo2.doublechain.DoubleChain;
 import edu.taylor.modulo2.fifo.Queue;
 import edu.taylor.modulo2.lifo.LNode;
 import edu.taylor.modulo2.lifo.Pile;
+import edu.taylor.modulo2.tree.Tree;
+import edu.taylor.modulo2.tree.model.Obj;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +14,7 @@ public class Main {
         showFifo();
         showChain();
         showDoubleChain();
+        showTree();
     }
 
     public static void showLifo() {
@@ -80,5 +83,24 @@ public class Main {
         myDoubleChain.remove(3);
 
         System.out.println(myDoubleChain);
+    }
+
+    public static void showTree() {
+        Tree<Obj> myTree = new Tree<>();
+
+        myTree.add(new Obj(13));
+        myTree.add(new Obj(10));
+        myTree.add(new Obj(25));
+        myTree.add(new Obj(2));
+        myTree.add(new Obj(12));
+        myTree.add(new Obj(20));
+        myTree.add(new Obj(31));
+        myTree.add(new Obj(29));
+
+        myTree.remove(new Obj(20));
+
+        myTree.showInOrder();
+        myTree.showPostOrder();
+        myTree.showPreOrder();
     }
 }
