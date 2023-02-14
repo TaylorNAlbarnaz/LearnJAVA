@@ -15,8 +15,8 @@ public class Main {
         showFifo();
         showChain();
         showDoubleChain();
-        showTree();
         showCircular();
+        showTree();
     }
 
     public static void showLifo() {
@@ -88,6 +88,23 @@ public class Main {
         System.out.println(myDoubleChain);
     }
 
+    public static void showCircular() {
+        Circular<String> myCircular = new Circular<>();
+
+        myCircular.add("Item 1");
+        myCircular.add("Item 2");
+        myCircular.add("Item 3");
+
+        System.out.println(myCircular);
+
+        myCircular.remove(2);
+        myCircular.add("Item 3");
+        myCircular.add("Item 4");
+        myCircular.add("Item 5");
+
+        System.out.println(myCircular);
+    }
+
     public static void showTree() {
         Tree<Obj> myTree = new Tree<>();
 
@@ -105,22 +122,5 @@ public class Main {
         myTree.showInOrder();
         myTree.showPostOrder();
         myTree.showPreOrder();
-    }
-
-    public static void showCircular() {
-        Circular<String> myCircular = new Circular<>();
-
-        myCircular.add("Item 1");
-        myCircular.add("Item 2");
-        myCircular.add("Item 3");
-
-        System.out.println(myCircular);
-
-        myCircular.remove(2);
-        myCircular.add("Item 3");
-        myCircular.add("Item 4");
-        myCircular.add("Item 5");
-
-        System.out.println(myCircular);
     }
 }
