@@ -47,7 +47,9 @@ public class Chain<T> {
     }
 
     public T remove(int index) {
+        checkValidIndex(index);
         ONode<T> pivotRef = getONode(index);
+        
         if (index == 0) {
             entryRef = pivotRef.getNextONode();
             return pivotRef.getData();
