@@ -36,6 +36,14 @@ public class Driver {
         return health;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
+
     public void setMoney(double money) {
         this.money = money;
     }

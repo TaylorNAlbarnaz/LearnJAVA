@@ -44,6 +44,14 @@ public abstract class Vehicle {
         return wheels;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     @Override
     public String toString() {
         return "a " + getDescription();

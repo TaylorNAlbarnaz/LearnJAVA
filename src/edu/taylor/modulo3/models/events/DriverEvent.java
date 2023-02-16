@@ -2,6 +2,7 @@ package edu.taylor.modulo3.models.events;
 
 import edu.taylor.modulo3.models.GameManager;
 import edu.taylor.modulo3.models.actors.Pedestrian;
+import edu.taylor.modulo3.models.builders.PedestrianBuilder;
 import edu.taylor.modulo3.models.vehicles.Car;
 
 public class DriverEvent extends Event {
@@ -18,8 +19,8 @@ public class DriverEvent extends Event {
 
     @Override
     public void initialize() {
-        car = new Car("Mustang", "red");
-        ped = new Pedestrian("John", 'M', car);
+        ped = new PedestrianBuilder().asAny().withAnyCar().build();
+        car = ped.car;
     }
 
     @Override
