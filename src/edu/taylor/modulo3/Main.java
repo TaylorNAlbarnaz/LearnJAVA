@@ -1,8 +1,8 @@
 package edu.taylor.modulo3;
 
-import edu.taylor.modulo3.models.Car;
-import edu.taylor.modulo3.models.Motorcycle;
-import edu.taylor.modulo3.models.Truck;
+import edu.taylor.modulo3.models.vehicles.Car;
+import edu.taylor.modulo3.models.vehicles.Motorcycle;
+import edu.taylor.modulo3.models.vehicles.Truck;
 
 public class Main {
     public static void main(String[] args) {

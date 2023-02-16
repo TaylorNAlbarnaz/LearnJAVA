@@ -1,4 +1,4 @@
-package edu.taylor.modulo3.models;
+package edu.taylor.modulo3.models.vehicles;
 
 public class Truck extends Vehicle {
     public Truck(String name, String color, int wheelQuantity) {
