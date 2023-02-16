@@ -32,11 +32,20 @@ public abstract class Vehicle {
         return color;
     }
 
+    public String getDescription() {
+        return color + " " + name;
+    }
+
     public int getWheelQuantity() {
         return wheelQuantity;
     }
 
     public List<Wheel> getWheels() {
         return wheels;
+    }
+
+    @Override
+    public String toString() {
+        return "a " + getDescription();
     }
 }

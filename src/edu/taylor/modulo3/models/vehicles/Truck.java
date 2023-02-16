@@ -7,6 +7,6 @@ public class Truck extends Vehicle {
 
     @Override
     public String toString() {
-        return name + " is a " + color + " truck with " + wheelQuantity + " wheels";
+        return "a " + getDescription() + " truck with " + wheelQuantity + " wheels";
     }
 }
