@@ -1,25 +1,17 @@
 package edu.taylor.modulo3;
 
-import java.util.Scanner;
-
-import edu.taylor.modulo3.models.GameManager;
+import edu.taylor.modulo3.models.vehicles.Car;
+import edu.taylor.modulo3.models.vehicles.Motorcycle;
+import edu.taylor.modulo3.models.vehicles.Truck;
 
 public class Main {
     public static void main(String[] args) {
-        GameManager gameManager = new GameManager();
+        Car car = new Car("Mustang", "white");
+        Motorcycle motorcycle = new Motorcycle("Honda", "red");
+        Truck truck = new Truck("Volkswagen", "blue", 16);
 
-        Scanner scanner = new Scanner(System.in);
-        String response = "";
-
-        while (gameManager.quit == false) {
-            System.out.println("Type quit to exit");
-            response = scanner.nextLine();
-
-            if (response.equalsIgnoreCase("quit")) {
-                gameManager.quit = true;
-            }
-        }
-
-        scanner.close();
+        System.out.println(car);
+        System.out.println(motorcycle);
+        System.out.println(truck);
     }
 }
